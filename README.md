@@ -20,16 +20,16 @@ usage|`__doc__`
 `python -m launchd_env.set plist_file env_file ...`|set environment variables from env file(s)
 
 #### Examples
-`~/LaunchAgents/.env`
+`~/Library/LaunchAgents/.env`
 ```bash
 PATH=/Users/username/.local/share/bin
 ```
 
 ```bash
-$ python -m launchd_env.set ~/LaunchAgents/agent.plist ~/LaunchAgents/.env
+$ python -m launchd_env.set ~/Library/LaunchAgents/agent.plist ~/Library/LaunchAgents/.env
 ```
 
-`~/LaunchAgents/agent.plist`
+`~/Library/LaunchAgents/agent.plist`
 ```xml
 ...
 <key>EnvironmentVariables</key>
