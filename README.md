@@ -1,5 +1,6 @@
 <!--
 https://pypi.org/project/readme-generator/
+https://pypi.org/project/python-readme-generator/
 -->
 
 [![](https://img.shields.io/badge/OS-MacOS-blue.svg?longCache=True)]()
@@ -12,17 +13,10 @@ https://pypi.org/project/readme-generator/
 $ [sudo] pip install launchd-env
 ```
 
-#### Functions
-function|`__doc__`
--|-
-`launchd_env.read(path)` |return a dictionary with plist file environment variables
-`launchd_env.write(path, **vars)` |write environment variables to a plist file
-
-#### CLI
+#### Executable modules
 usage|`__doc__`
 -|-
-`python -m launchd_env.add plist_file env_file ...` |add environment variables from env file(s)
-`python -m launchd_env.set plist_file env_file ...` |set environment variables from env file(s)
+`python -m launchd_env env_path plist_path ...` |set launchd.plist(s) environment variables
 
 #### Examples
 `~/Library/LaunchAgents/.env`
@@ -31,7 +25,7 @@ PATH=/Users/username/.local/share/bin
 ```
 
 ```bash
-$ python -m launchd_env.set ~/Library/LaunchAgents/agent.plist ~/Library/LaunchAgents/.env
+$ python -m launchd_env ~/Library/LaunchAgents/.env ~/Library/LaunchAgents/agent.plist
 ```
 
 `~/Library/LaunchAgents/agent.plist`
@@ -46,7 +40,7 @@ $ python -m launchd_env.set ~/Library/LaunchAgents/agent.plist ~/Library/LaunchA
 ```
 
 ```bash
-$ find ~/Library/LaunchAgents -name "*.plist" -exec python -m launchd_env.set {} ~/Library/LaunchAgents/.env \;
+$ find ~/Library/LaunchAgents -name "*.plist" -print0 | xargs -0 python -m launchd_env ~/Library/LaunchAgents/.env
 ```
 
 #### Related projects
@@ -56,5 +50,5 @@ $ find ~/Library/LaunchAgents -name "*.plist" -exec python -m launchd_env.set {}
 +   [`launchd-logs` - launchd.plist logs](https://pypi.org/project/launchd-logs/)
 
 <p align="center">
-    <a href="https://pypi.org/project/readme-generator/">readme-generator</a>
+    <a href="https://pypi.org/project/python-readme-generator/">python-readme-generator</a>
 </p>
